@@ -1,0 +1,6 @@
+:80 {
+  basicauth {
+    {$CADDY_USERNAME} {$CADDY_PASSWORD_HASH}
+  }
+  reverse_proxy localhost:11434
+}
