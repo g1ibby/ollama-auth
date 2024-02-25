@@ -8,6 +8,7 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - name: Check out the repo
       uses: actions/checkout@v2
