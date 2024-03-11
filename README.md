@@ -6,7 +6,7 @@ This project provides a Docker image that runs the Ollama service with basic aut
 
 To use this Docker image, you can run the following command:
 ```
-docker run -p 8200:80 -e CADDY_USERNAME=myusername -e CADDY_PASSWORD=mypassword ollama-auth:latest
+docker run -p 8200:80 -e CADDY_USERNAME=myusername -e CADDY_PASSWORD=mypassword ghcr.io/g1ibby/ollama-auth:latest 
 ```
 This will start a new Docker container using the `ollama-auth` image, and map port 8200 on the host machine to port 80 on the container. The basic authentication credentials can be set using the `CADDY_USERNAME` and `CADDY_PASSWORD` environment variables.
 
