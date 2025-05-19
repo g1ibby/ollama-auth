@@ -12,17 +12,18 @@ export CADDY_PASSWORD_HASH=$(echo "$CADDY_PASSWORD" | caddy hash-password)
 # Start ollama in the background
 ollama serve &
 OLLAMA_PID=$!
+
 # Start caddy in the background
 caddy run --config /etc/caddy/Caddyfile &
 CADDY_PID=$!
 
 # Function to check process status
 check_process() {
-    wait $1
+    wait $1 2>/dev/null
     STATUS=$?
     if [ $STATUS -ne 0 ]; then
-        echo "Process $2 ($1) has exited with status $STATUS"
-        exit $STATUS
+        echo "Process $2 ($1) exited with status $STATUS - will attempt restart"
+        return $STATUS
     fi
 }
 

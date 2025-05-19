@@ -1,0 +1,19 @@
+services:
+
+  ollama-auth:
+    image: ollama-auth:latest
+    ports:
+      - "11435:80"
+    environment:
+      - CADDY_USERNAME=myusername
+      - CADDY_PASSWORD=mypassword
+    volumes:
+      - ollama_models:/root/.ollama
+
+volumes:
+  ollama_models:
+    driver: local
+    driver_opts:
+      type: none
+      device: R:/ollama-auth/ollama/
+      o: bind
