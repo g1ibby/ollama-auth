@@ -1,6 +1,12 @@
 :80 {
-  basicauth {
-    {$CADDY_USERNAME} {$CADDY_PASSWORD_HASH}
+  @api_key_check {
+    not header X-API-Key {$OLLAMA_API_KEY}
   }
+
+  respond @api_key_check 403 {
+    body "Forbidden: Invalid API Key"
+    close
+  }
+
   reverse_proxy localhost:11434
 }

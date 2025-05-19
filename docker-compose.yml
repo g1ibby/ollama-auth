@@ -5,8 +5,7 @@ services:
     ports:
       - "11435:80"
     environment:
-      - CADDY_USERNAME=myusername
-      - CADDY_PASSWORD=mypassword
+      - OLLAMA_API_KEY=your_api_key_here
     volumes:
       - ollama_models:/root/.ollama
 

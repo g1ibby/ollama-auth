@@ -18,6 +18,13 @@ docker build -t ollama-auth .
 ```
 This will build the Docker image using the `Dockerfile` in the current directory, and tag it with the name `ollama-auth`.
 
+## Docker Tag and Publish Image
+
+```
+docker tag ollama-auth radu103/ollama-auth
+docker push  radu103/ollama-auth
+```
+
 ## Running the Ollama Service:
 
 The Ollama service is started automatically when the Docker container is launched. It will be available at `http://localhost:11435` on the host machine.

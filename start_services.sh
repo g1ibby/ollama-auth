@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Ensure required environment variables are set
-if [ -z "$CADDY_USERNAME" ] || [ -z "$CADDY_PASSWORD" ]; then
-    echo "CADDY_USERNAME or CADDY_PASSWORD is not set. Exiting."
+if [ -z "$OLLAMA_API_KEY" ]; then
+    echo "OLLAMA_API_KEY is not set. Exiting."
     exit 1
 fi
 
