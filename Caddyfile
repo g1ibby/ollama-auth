@@ -1,12 +1,31 @@
+# Caddyfile for Ollama authentication
 :80 {
-  @api_key_check {
-    not header X-API-Key {$OLLAMA_API_KEY}
+  @auth_bearer {
+    header Authorization "Bearer {$OLLAMA_API_KEY}"
   }
 
-  respond @api_key_check 403 {
+  @auth_query {
+    query api-key={$OLLAMA_API_KEY}
+  }
+  
+  @auth_header {
+    header X-API-Key {$OLLAMA_API_KEY}
+  }
+
+  handle @auth_bearer {
+    reverse_proxy localhost:11434
+  }
+
+  handle @auth_query {
+    reverse_proxy localhost:11434
+  }
+
+  handle @auth_header {
+    reverse_proxy localhost:11434
+  }
+
+  respond 403 {
     body "Forbidden: Invalid API Key"
     close
   }
-
-  reverse_proxy localhost:11434
 }
