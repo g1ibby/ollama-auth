@@ -6,9 +6,6 @@ if [ -z "$OLLAMA_API_KEY" ]; then
     exit 1
 fi
 
-# Generate the password hash without an interactive prompt
-export CADDY_PASSWORD_HASH=$(echo "$CADDY_PASSWORD" | caddy hash-password)
-
 # Start ollama in the background
 ollama serve &
 OLLAMA_PID=$!

@@ -1,7 +1,7 @@
 services:
 
   ollama-auth:
-    image: ollama-auth:latest
+    image: radu103/ollama-auth:latest
     ports:
       - "11435:80"
     environment:
