@@ -1,0 +1,18 @@
+services:
+
+  ollama-auth:
+    image: radu103/ollama-auth:latest
+    ports:
+      - "11435:80"
+    environment:
+      - OLLAMA_API_KEY=your_api_key_here
+    volumes:
+      - ollama_models:/root/.ollama
+
+volumes:
+  ollama_models:
+    driver: local
+    driver_opts:
+      type: none
+      device: R:/ollama-auth/ollama/
+      o: bind
