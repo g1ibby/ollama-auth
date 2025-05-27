@@ -88,13 +88,13 @@ jobs:
       - name: Test Docker image
         run: |
           # Pull the image
-          docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:pr-${{ github.event.number }}
+          docker pull ghcr.io/g1ibby/ollama-auth:latest
           
           # Run container in background
           docker run -d --name test-container \
             -p 11435:80 \
             -e OLLAMA_API_KEY=test-key-12345 \
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:pr-${{ github.event.number }}
+            ghcr.io/g1ibby/ollama-auth:latest
           
           # Wait for services to start
           sleep 30
