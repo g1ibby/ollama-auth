@@ -1,0 +1,33 @@
+version: 2
+updates:
+  # GitHub Actions dependencies
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "g1ibby"
+    assignees:
+      - "g1ibby"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  # Docker dependencies (if any package files exist)
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+    open-pull-requests-limit: 3
+    reviewers:
+      - "g1ibby"
+    assignees:
+      - "g1ibby"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
