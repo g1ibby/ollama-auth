@@ -74,6 +74,9 @@ jobs:
     if: github.event_name != 'schedule'
     
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Build Docker image for scanning
         run: |
           docker build -t local-scan:latest .
