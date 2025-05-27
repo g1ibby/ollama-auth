@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 # Update and install wget to download caddy
 RUN apt-get update && apt-get install -y wget curl bash

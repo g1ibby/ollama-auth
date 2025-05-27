@@ -35,7 +35,7 @@ jobs:
 
       - name: Create Pull Request for Ubuntu Update
         if: steps.ubuntu-check.outputs.update_needed == 'true'
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "chore: update Ubuntu base image from ${{ steps.ubuntu-check.outputs.current_version }} to ${{ steps.ubuntu-check.outputs.latest_version }}"
@@ -93,7 +93,7 @@ jobs:
 
       - name: Create Pull Request for Caddy Update
         if: steps.caddy-check.outputs.update_needed == 'true'
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "chore: update Caddy from v${{ steps.caddy-check.outputs.current_version }} to v${{ steps.caddy-check.outputs.latest_version }}"
