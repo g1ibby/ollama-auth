@@ -73,7 +73,6 @@ jobs:
   test-image:
     needs: build-and-push
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
     
     steps:
       - name: Set up Docker Buildx

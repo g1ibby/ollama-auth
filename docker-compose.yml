@@ -1,7 +1,7 @@
 services:
 
   ollama-auth:
-    image: g1ibby/ollama-auth:latest
+    image: ghcr.io/g1ibby/ollama-auth:latest
     ports:
       - "11435:80"
     environment:
@@ -12,7 +12,3 @@ services:
 volumes:
   ollama_models:
     driver: local
-    driver_opts:
-      type: none
-      device: R:/ollama-auth/ollama/
-      o: bind
