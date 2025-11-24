@@ -12,7 +12,7 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Check for Ubuntu updates
         id: ubuntu-check
@@ -65,7 +65,7 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Check for Caddy updates
         id: caddy-check
