@@ -1,13 +1,16 @@
 services:
 
   ollama-auth:
-    image: ghcr.io/g1ibby/ollama-auth:latest
+#    image: ghcr.io/g1ibby/ollama-auth:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "11435:80"
     environment:
-      - OLLAMA_API_KEY=your_api_key_here
+      - OLLAMA_API_KEY=${OLLAMA_API_KEY:-}  
     volumes:
-      - ollama_models:/root/.ollama
+      - ${OLLAMA_LOCAL_DIR:-ollama_models}:/root/.ollama
 
 volumes:
   ollama_models:
