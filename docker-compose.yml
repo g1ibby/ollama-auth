@@ -10,7 +10,7 @@ services:
     environment:
       - OLLAMA_API_KEY=${OLLAMA_API_KEY:-}  
     volumes:
-      - ollama_models:/root/.ollama
+      - ${OLLAMA_LOCAL_DIR:-ollama_models}:/root/.ollama
 
 volumes:
   ollama_models:
